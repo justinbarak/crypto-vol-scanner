@@ -12,7 +12,9 @@ nomics-python = "^3.2.0"
 ipykernel = "^6.5.1"
 jupyter = "^1.0.0"
 python-dotenv = "^0.19.2"
+# backtrader = {git = "https://github.com/mementum/backtrader.git", rev = "0fa63ef4a35dc53cc7320813f8b15480c8f85517"}
 backtrader = "^1.9.76"
+borb = "^2.0.15"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
