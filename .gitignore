@@ -1,2 +1,5 @@
 .env
 crypto_vol_scanner/results/*
+downloaded_data/nomics/candles/*
+bt_data_runs/*
+downloaded_data/*
