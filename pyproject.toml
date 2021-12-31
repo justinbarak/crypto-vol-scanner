@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "crypto-vol-scanner"
-version = "0.1.0"
+version = "0.2.0"
 description = "Crypto bot to scan nomics looking for volume surging coins pre-pump."
 authors = ["justinbarak <justinbarak@gmail.com>"]
 
@@ -19,6 +19,7 @@ numpy = "^1.21.4"
 tqdm = "^4.62.3"
 openpyxl = "^3.0.9"
 dill = "^0.3.4"
+alive-progress = "1.6.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

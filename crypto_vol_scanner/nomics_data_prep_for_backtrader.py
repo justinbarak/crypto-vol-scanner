@@ -24,7 +24,7 @@ def all_currencies() -> list:
 
 def load_currency_data(currency: str) -> pd.DataFrame:
     """
-    Load currency data from pickled file. Return dataframe.
+    Load currency candle data from pickled file. Return dataframe.
     """
     currency_data = pd.read_pickle(
         f"..\\downloaded_data\\nomics\\candles\\{currency}.pkl"
