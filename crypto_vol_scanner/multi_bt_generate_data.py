@@ -9,7 +9,11 @@ from tqdm import tqdm as progress_bar
 from pathlib import Path
 import backtrader as bt
 from multi_nomics_bt_strategy import VolumeStrategy
-from nomics_data_prep_for_backtrader import load_currency_data, all_currencies
+from nomics_data_prep_for_backtrader import (
+    load_currency_data,
+    all_currencies,
+    _clean_currency_data,
+)
 from backtrader.feeds import PandasData
 import dill as pickle
 import numpy as np
@@ -255,6 +259,10 @@ def total_redo(
 
 
 def main() -> None:
+
+    # comment out below if running repeat analysis
+    _clean_currency_data()
+
     n_workers = max(multiprocessing.cpu_count() * 6 // 7 - 1, 1)
     results_folder = Path("../bt_data_runs/").resolve()
     combined_archive_save_path = results_folder.joinpath(f"aggregated_archive_df.pkl")

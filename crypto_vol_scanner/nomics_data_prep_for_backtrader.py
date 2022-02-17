@@ -67,8 +67,15 @@ def _clean_currency_data() -> None:
                 os.remove(f"..\\downloaded_data\\nomics\\candles\\{currency}.pkl")
             else:
                 raise Exception("Error in column headers")
-    print(len(error_list))
-    print(error_list)
+    # save list of currencies with issues
+    error_list_file_path = Path(r"../downloaded_data/nomics/empty_cryptos.pkl").resolve()
+    print(
+        f"{len(error_list)} currencies with errors. Output logged"
+        f" to\n{error_list_file_path}"
+    )
+    df = pd.DataFrame(error_list, columns=["id"])
+    df.to_pickle(error_list_file_path)
+
     return None
 
 

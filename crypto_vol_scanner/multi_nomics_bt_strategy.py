@@ -65,7 +65,14 @@ class VolumeStrategy(bt.Strategy):
             if len(self.log_df[self.log_df["run_name"] == name]) == 1:
                 row_index = self.log_df.index[self.log_df["run_name"] == name].tolist()[0]
                 self.log_df.at[row_index, "sell_date"] = datetime64(dt)
-                Price = min(Price, self.log_df.at[row_index, "buy_price"])
+
+                # cap multiple at lower of price and theoretical max exit price
+                Price = min(
+                    Price,
+                    self.log_df.at[row_index, "buy_price"]
+                    * self.log_df.at[row_index, "sell_price_multiple"],
+                )
+
                 self.log_df.at[row_index, "sale_price"] = Price
                 self.log_df.at[row_index, "status"] = "closed"
             else:
